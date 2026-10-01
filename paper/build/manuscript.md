@@ -52,7 +52,7 @@ The remainder of the paper is organised as follows. Section 2 reviews related wo
 
 **Machine learning for crop yield.** Systematic reviews describe a literature dominated by tree ensembles, neural networks and regularised regression applied to climate, soil, management and remote-sensing covariates [1]. Evaluation designs in this literature vary, and a recent critique of common issues in published crop-yield studies points to validation that does not match the intended use, including random cross-validation of spatially and temporally structured data [5]. A recent preprint reports that cross-country transfer of yield models in Sub-Saharan Africa is far worse than within-country skill suggests [6]. Our contribution is complementary: we dissect one concrete, publicly shared benchmark file, quantify the effect of its construction on evaluation, and extend the question from point accuracy to interval coverage.
 
-**Leakage, duplicates and structured validation.** Leakage has been catalogued across disciplines and is a major source of irreproducible results [2]. Benchmark duplicates are a specific form: near-duplicate images shared by training and test sets of CIFAR inflate reported accuracy [13], and general guidance on avoiding machine-learning pitfalls lists such overlap among the most common errors [14]. For data with spatial, temporal, hierarchical or phylogenetic structure, blocked cross-validation gives more realistic estimates than random folds [3], and spatial validation has overturned apparent skill in large-scale ecological mapping [4]. The WILDS benchmarks make the same point for domain shift in general [15]. Mixed-effects approaches show that standard tree ensembles ignore within-cluster dependence [16]. We build on these results by tracing the origin of duplication in a specific file, by relating the memorisation of group identity to the behaviour of conformal intervals, and by comparing model families on the same data.
+**Leakage, duplicates and structured validation.** Leakage has been catalogued across disciplines and is a major source of irreproducible results [2]. Benchmark duplicates are a specific form: near-duplicate images shared by training and test sets of CIFAR inflate reported accuracy [13], and general guidance on avoiding machine-learning pitfalls covers data leakage and evaluation errors of this kind [14]. For data with spatial, temporal, hierarchical or phylogenetic structure, blocked cross-validation gives more realistic estimates than random folds [3], and spatial validation has overturned apparent skill in large-scale ecological mapping [4]. The WILDS benchmarks make the same point for domain shift in general [15]. Mixed-effects approaches show that standard tree ensembles ignore within-cluster dependence [16]. We build on these results by tracing the origin of duplication in a specific file, by relating the memorisation of group identity to the behaviour of conformal intervals, and by comparing model families on the same data.
 
 **Conformal prediction under shift.** Split conformal prediction gives finite-sample marginal coverage for exchangeable data [17–19]. When exchangeability fails, coverage can degrade; weighted conformal prediction restores validity under a known covariate shift [20], and non-exchangeable variants bound the coverage loss [21]. Cross-conformal and jackknife+ methods reuse all data for calibration [22]. Locally adaptive intervals use a model of the residual scale [23], and Mondrian or group-conditional calibration targets coverage within groups [24, 25]. Prediction sets for two-layer hierarchical data treat groups as the exchangeable unit [26]. In agriculture, conformal prediction has been analysed for image-based decision support [27], and group-conditional calibration has been used for crop and weed classification [28]. We are not aware of work on tabular yield regression that examines how calibration on random rows fails for unseen countries or districts. Our contribution is empirical and diagnostic: we show when naive calibration collapses, relate the collapse to the inflation ratio of group leakage, and compare these existing remedies (group-aware, locally scaled, weighted and cross-conformal) under a common protocol.
 
@@ -155,7 +155,7 @@ The first source is the file `yield_df.csv` from a public Kaggle dataset that co
 
 ## Indian district-level table
 
-The second source is a district-level table of area and production by crop and season in India for 1997–2015 [11]. It has 246,091 rows, 33 states, 652 districts and 124 crops, and no weather variables. We removed rows with missing production or non-positive area or production, computed yield as production divided by area, dropped crops with fewer than 20 rows, and trimmed the extreme 0.1% in each tail of log-yield. The cleaned table has 238,191 rows, 90 crops, 33 states and 652 districts. The exact cleaning rule of earlier analyses may differ; the rule above is the one used for every result reported here. We did not verify the original publication source of this table beyond the dataset page, and treat it as a convenient public benchmark.
+The second source is a district-level table of area and production by crop and season in India for 1997–2015 [11]. It has 246,091 rows, 33 states, 652 distinct state–district combinations (the dataset page counts 646 distinct district names, because some names recur in several states) and 124 crops, and no weather variables. We call each state–district combination a district. We removed rows with missing production or non-positive area or production, computed yield as production divided by area, dropped crops with fewer than 20 rows, and trimmed the extreme 0.1% in each tail of log-yield. The cleaned table has 238,191 rows, 90 crops, 33 states and 652 districts. The exact cleaning rule of earlier analyses may differ; the rule above is the one used for every result reported here. We did not verify the original publication source of this table beyond the dataset page, and treat it as a convenient public benchmark.
 
 ## Groups and features
 
@@ -547,47 +547,47 @@ Table: Table B2. RMSE of log-yield, Indian district table, mean over seeds and f
 
 \[2\] S. Kapoor, A. Narayanan, Leakage and the reproducibility crisis in machine-learning-based science, Patterns 4 (9) (2023) 100804. doi:10.1016/j.patter.2023.100804.
 
-\[3\] D.R. Roberts, V. Bahn, S. Ciuti, M.S. Boyce, J. Elith, G. Guillera-Arroita, et al., Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure, Ecography 40 (8) (2017) 913–929. doi:10.1111/ecog.02881.
+\[3\] D.R. Roberts, V. Bahn, S. Ciuti, M.S. Boyce, J. Elith, G. Guillera-Arroita, S. Hauenstein, J.J. Lahoz-Monfort, B. Schröder, W. Thuiller, D.I. Warton, B.A. Wintle, F. Hartig, C.F. Dormann, Cross-validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure, Ecography 40 (8) (2017) 913–929. doi:10.1111/ecog.02881.
 
-\[4\] P. Ploton, et al., Spatial validation reveals poor predictive performance of large-scale ecological mapping models, Nature Communications 11 (2020) 4540. doi:10.1038/s41467-020-18321-y.
+\[4\] P. Ploton, F. Mortier, M. Réjou-Méchain, N. Barbier, N. Picard, V. Rossi, C. Dormann, G. Cornu, G. Viennois, N. Bayol, A. Lyapustin, S. Gourlet-Fleury, R. Pélissier, Spatial validation reveals poor predictive performance of large-scale ecological mapping models, Nature Communications 11 (1) (2020) 4540. doi:10.1038/s41467-020-18321-y.
 
-\[5\] P. Filippi, S.Y. Han, T.F.A. Bishop, On crop yield modelling, predicting, and forecasting and addressing the common issues in published studies, Precision Agriculture (2024), published online 7 December 2024.
+\[5\] P. Filippi, S.Y. Han, T.F.A. Bishop, On crop yield modelling, predicting, and forecasting and addressing the common issues in published studies, Precision Agriculture 26 (1) (2025) 8. doi:10.1007/s11119-024-10212-2.
 
-\[6\] Y.O. Adjei, Do foundation model embeddings improve cross-country crop yield generalisation? A leave-one-country-out evaluation in Sub-Saharan Africa, arXiv:2605.08113 (preprint).
+\[6\] Y.O. Adjei, Do foundation model embeddings improve cross-country crop yield generalisation? A leave-one-country-out evaluation in Sub-Saharan Africa, arXiv:2605.08113 (2026), preprint.
 
-\[7\] pnastra, crop-yield-forecast, GitHub repository, https://github.com/pnastra/crop-yield-forecast (accessed 2026).
+\[7\] pnastra, crop-yield-forecast, GitHub repository, https://github.com/pnastra/crop-yield-forecast (accessed October 2026).
 
-\[8\] sivarjun21, crop-yield-prediction, GitHub repository, https://github.com/sivarjun21/crop-yield-prediction (accessed 2026).
+\[8\] sivarjun21, crop-yield-prediction, GitHub repository, https://github.com/sivarjun21/crop-yield-prediction (accessed October 2026).
 
-\[9\] R. Patel, Crop Yield Prediction Dataset, Kaggle, https://www.kaggle.com/datasets/patelris/crop-yield-prediction-dataset (accessed 2026).
+\[9\] R. Patel, Crop Yield Prediction Dataset, Kaggle, https://www.kaggle.com/datasets/patelris/crop-yield-prediction-dataset (accessed October 2026).
 
-\[10\] FAO, FAOSTAT: Production: Crops and livestock products (QCL), https://www.fao.org/faostat/en/#data/QCL (accessed 2026).
+\[10\] FAO, FAOSTAT: Production: Crops and livestock products (QCL), https://www.fao.org/faostat/en/#data/QCL (accessed October 2026).
 
-\[11\] Abhinand, Crop Production in India, Kaggle, https://www.kaggle.com/datasets/abhinand05/crop-production-in-india (accessed 2026).
+\[11\] Abhinand, Crop Production in India, Kaggle, https://www.kaggle.com/datasets/abhinand05/crop-production-in-india (accessed October 2026).
 
 \[12\] \[Authors to be added\], Group leakage in tabular regression benchmarks: theory, measurement and remedies, companion manuscript (2026), https://github.com/deep1789/Energy-efficient.
 
-\[13\] B. Barz, J. Denzler, Do we train on test data? Purging CIFAR of near-duplicates, Journal of Imaging 6 (6) (2020) 41.
+\[13\] B. Barz, J. Denzler, Do we train on test data? Purging CIFAR of near-duplicates, Journal of Imaging 6 (6) (2020) 41. doi:10.3390/jimaging6060041.
 
-\[14\] M.A. Lones, How to avoid machine learning pitfalls: a guide for academic researchers, arXiv:2108.02497 (2021).
+\[14\] M.A. Lones, Avoiding common machine learning pitfalls, Patterns 5 (10) (2024) 101046. doi:10.1016/j.patter.2024.101046.
 
-\[15\] P.W. Koh, et al., WILDS: a benchmark of in-the-wild distribution shifts, Proceedings of the 38th International Conference on Machine Learning, PMLR 139 (2021) 5637–5664.
+\[15\] P.W. Koh, S. Sagawa, H. Marklund, S.M. Xie, M. Zhang, A. Balsubramani, W. Hu, M. Yasunaga, R.L. Phillips, I. Gao, T. Lee, E. David, I. Stavness, W. Guo, B. Earnshaw, I. Haque, S.M. Beery, J. Leskovec, A. Kundaje, E. Pierson, S. Levine, C. Finn, P. Liang, WILDS: a benchmark of in-the-wild distribution shifts, in: Proceedings of the 38th International Conference on Machine Learning, PMLR 139 (2021) 5637–5664.
 
 \[16\] A. Hajjem, F. Bellavance, D. Larocque, Mixed-effects random forest for clustered data, Journal of Statistical Computation and Simulation 84 (6) (2014) 1313–1328. doi:10.1080/00949655.2012.741599.
 
-\[17\] V. Vovk, A. Gammerman, G. Shafer, Algorithmic Learning in a Random World, Springer, New York, 2005. doi:10.1007/b106715.
+\[17\] V. Vovk, A. Gammerman, G. Shafer, Algorithmic Learning in a Random World, Springer, 2005. doi:10.1007/b106715.
 
 \[18\] J. Lei, M. G'Sell, A. Rinaldo, R.J. Tibshirani, L. Wasserman, Distribution-free predictive inference for regression, Journal of the American Statistical Association 113 (523) (2018) 1094–1111. doi:10.1080/01621459.2017.1307116.
 
 \[19\] A.N. Angelopoulos, S. Bates, Conformal prediction: a gentle introduction, Foundations and Trends in Machine Learning 16 (4) (2023) 494–591. doi:10.1561/2200000101.
 
-\[20\] R.J. Tibshirani, R.F. Barber, E.J. Candès, A. Ramdas, Conformal prediction under covariate shift, Advances in Neural Information Processing Systems 32 (2019). arXiv:1904.06019.
+\[20\] R.J. Tibshirani, R.F. Barber, E.J. Candès, A. Ramdas, Conformal prediction under covariate shift, in: Advances in Neural Information Processing Systems 32 (NeurIPS 2019), 2019. arXiv:1904.06019.
 
 \[21\] R.F. Barber, E.J. Candès, A. Ramdas, R.J. Tibshirani, Conformal prediction beyond exchangeability, Annals of Statistics 51 (2) (2023) 816–845. doi:10.1214/23-AOS2276.
 
 \[22\] R.F. Barber, E.J. Candès, A. Ramdas, R.J. Tibshirani, Predictive inference with the jackknife+, Annals of Statistics 49 (1) (2021) 486–507. doi:10.1214/20-AOS1965.
 
-\[23\] Y. Romano, E. Patterson, E.J. Candès, Conformalized quantile regression, Advances in Neural Information Processing Systems 32 (2019). arXiv:1905.03222.
+\[23\] Y. Romano, E. Patterson, E.J. Candès, Conformalized quantile regression, in: Advances in Neural Information Processing Systems 32 (NeurIPS 2019), 2019. arXiv:1905.03222.
 
 \[24\] V. Vovk, Conditional validity of inductive conformal predictors, Machine Learning 92 (2–3) (2013) 349–376. doi:10.1007/s10994-013-5355-6.
 
@@ -595,17 +595,17 @@ Table: Table B2. RMSE of log-yield, Indian district table, mean over seeds and f
 
 \[26\] R. Dunn, L. Wasserman, A. Ramdas, Distribution-free prediction sets for two-layer hierarchical models, Journal of the American Statistical Association 118 (544) (2023) 2491–2502. doi:10.1080/01621459.2022.2060112.
 
-\[27\] M. Farag, A. Emam, J. Leonhardt, R. Roscher, Enhancing decision support in crop production: analyzing conformal prediction for uncertainty quantification, Computers and Electronics in Agriculture 237 (2025). doi:10.1016/j.compag.2025.110559.
+\[27\] M. Farag, A. Emam, J. Leonhardt, R. Roscher, Enhancing decision support in crop production: analyzing conformal prediction for uncertainty quantification, Computers and Electronics in Agriculture 237 (2025) 110559. doi:10.1016/j.compag.2025.110559.
 
-\[28\] P. Melki, L. Bombrun, B. Diallo, J. Dias, J.-P. da Costa, Group-conditional conformal prediction via quantile regression calibration for crop and weed classification, Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (2023) 614–623.
+\[28\] P. Melki, L. Bombrun, B. Diallo, J. Dias, J.-P. Da Costa, Group-conditional conformal prediction via quantile regression calibration for crop and weed classification, in: Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops, 2023, pp. 614–623.
 
 \[29\] H. Jiang, Y. Xie, Spatial conformal inference through localized quantile regression, arXiv:2412.01098 (2024).
 
 \[30\] X. Lou, P. Luo, L. Meng, GeoConformal prediction: a model-agnostic framework for measuring the uncertainty of spatial prediction, Annals of the American Association of Geographers 115 (8) (2025) 1971–1998. doi:10.1080/24694452.2025.2516091.
 
-\[31\] A. Bhattacharyya, R.F. Barber, Group-weighted conformal prediction, Electronic Journal of Statistics 20 (1) (2026). doi:10.1214/26-EJS2506.
+\[31\] A. Bhattacharyya, R.F. Barber, Group-weighted conformal prediction, Electronic Journal of Statistics 20 (1) (2026) 1171–1199. doi:10.1214/26-EJS2506.
 
-\[32\] H. Meyer, E. Pebesma, Predicting into unknown space? Estimating the area of applicability of spatial prediction models, Methods in Ecology and Evolution 12 (2021) 1620–1633. doi:10.1111/2041-210X.13650.
+\[32\] H. Meyer, E. Pebesma, Predicting into unknown space? Estimating the area of applicability of spatial prediction models, Methods in Ecology and Evolution 12 (9) (2021) 1620–1633. doi:10.1111/2041-210X.13650.
 
 \[33\] L. Breiman, Random forests, Machine Learning 45 (1) (2001) 5–32. doi:10.1023/A:1010933404324.
 
@@ -613,8 +613,8 @@ Table: Table B2. RMSE of log-yield, Indian district table, mean over seeds and f
 
 \[35\] P.E. Shrout, J.L. Fleiss, Intraclass correlations: uses in assessing rater reliability, Psychological Bulletin 86 (2) (1979) 420–428. doi:10.1037/0033-2909.86.2.420.
 
-\[36\] A.E. Hoerl, R.W. Kennard, Ridge regression: biased estimation for nonorthogonal problems, Technometrics 12 (1) (1970) 55–67.
+\[36\] A.E. Hoerl, R.W. Kennard, Ridge regression: biased estimation for nonorthogonal problems, Technometrics 12 (1) (1970) 55–67. doi:10.1080/00401706.1970.10488634.
 
 \[37\] G. Ke, Q. Meng, T. Finley, T. Wang, W. Chen, W. Ma, Q. Ye, T.-Y. Liu, LightGBM: a highly efficient gradient boosting decision tree, Advances in Neural Information Processing Systems 30 (2017) 3146–3154.
 
-\[38\] F. Pedregosa, G. Varoquaux, et al., Scikit-learn: machine learning in Python, Journal of Machine Learning Research 12 (2011) 2825–2830.
+\[38\] F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, É. Duchesnay, Scikit-learn: machine learning in Python, Journal of Machine Learning Research 12 (2011) 2825–2830.
