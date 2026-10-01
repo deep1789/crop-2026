@@ -1,0 +1,42 @@
+{
+ "fao": {
+  "rows": 28242,
+  "unique_records": 13130,
+  "frac_rows_repeating": 0.53508958289073,
+  "frac_rows_in_repeated_keys": 0.6709510657885419,
+  "icc_country_clean": {
+   "rain": 1.0,
+   "temp": 0.9954761143927718,
+   "pest": 0.7774526838100154
+  },
+  "max_distinct_yields_per_key": 1,
+  "n_countries": 101,
+  "n_crops": 10,
+  "years": [
+   1990,
+   2013
+  ],
+  "icc_country": {
+   "rain": 1.0,
+   "temp": 0.9222301841137585,
+   "pest": 0.7138628022753393
+  },
+  "icc_logyield_country_crop": 0.9544692025156105,
+  "icc_logyield_country_crop_clean": 0.9370695976300638
+ },
+ "india": {
+  "rows_raw": 246091,
+  "rows_clean": 238191,
+  "states": 33,
+  "districts_raw": 652,
+  "districts_clean": 652,
+  "crops_raw": 124,
+  "crops_clean": 90,
+  "years": [
+   1997,
+   2015
+  ],
+  "icc_logyield_district_crop": 0.9001324051363695,
+  "icc_logyield_state_crop": 0.8782352901522581
+ }
+}
