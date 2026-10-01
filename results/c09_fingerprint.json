@@ -1,0 +1,755 @@
+{
+ "fingerprint": {
+  "fao": {
+   "group_id_accuracy": 0.5964551759568456,
+   "majority_share": 0.017517136329017517,
+   "n_groups": 101,
+   "feature_icc": {
+    "rain": 1.0,
+    "pest": 0.7774526838100154,
+    "temp": 0.9954761143927718
+   },
+   "mean_feature_icc": 0.924309599400929
+  },
+  "india_state": {
+   "group_id_accuracy": 0.3129156653439893,
+   "majority_share": 0.13941666666666666,
+   "n_groups": 33,
+   "feature_icc": {
+    "log_area": 0.06880181642498871
+   },
+   "mean_feature_icc": 0.06880181642498871
+  },
+  "india_district": {
+   "group_id_accuracy": 0.018834180964623037,
+   "majority_share": 0.0039833333333333335,
+   "n_groups": 651,
+   "feature_icc": {
+    "log_area": 0.10474941193558941
+   },
+   "mean_feature_icc": 0.10474941193558941
+  }
+ },
+ "models": [
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.8724717175179979,
+   "group": 0.89681179293795
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.9107142857142857,
+   "group": 0.9203869047619048
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8311270125223613,
+   "group": 0.8597495527728086
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.8783068783068783,
+   "group": 0.8791887125220459
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.9451665312753859,
+   "group": 0.9691307879772543
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8784818941504178,
+   "group": 0.8767409470752089
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.9083463338533542,
+   "group": 0.9040561622464899
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.9154929577464789,
+   "group": 0.90999656475438
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.7784217565760143,
+   "group": 0.7646009808292465
+  },
+  {
+   "setting": "fao",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.8921259842519685,
+   "group": 0.8838582677165354
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.4470346246143298,
+   "group": 0.8978402468289338
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.4773065476190476,
+   "group": 0.9222470238095238
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.44042933810375673,
+   "group": 0.8808586762075135
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.5357142857142857,
+   "group": 0.9307760141093474
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.49553208773354995,
+   "group": 0.962225832656377
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.49025069637883006,
+   "group": 0.9115598885793872
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.43174726989079565,
+   "group": 0.859594383775351
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.5156303675712813,
+   "group": 0.9378220542768808
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.42353990191707536,
+   "group": 0.7975925100312082
+  },
+  {
+   "setting": "fao",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.4074803149606299,
+   "group": 0.8933070866141732
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.5546794652039767,
+   "group": 0.9331504970860474
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.6104910714285714,
+   "group": 0.9241071428571429
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.5817531305903398,
+   "group": 0.867262969588551
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.6300705467372134,
+   "group": 0.9232804232804233
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.6307879772542648,
+   "group": 0.9553208773354996
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.5974930362116991,
+   "group": 0.9080779944289693
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.6021840873634945,
+   "group": 0.8471138845553822
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.6581930608038474,
+   "group": 0.9395396770869117
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.5100312082032992,
+   "group": 0.8024966562639322
+  },
+  {
+   "setting": "fao",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.5118110236220472,
+   "group": 0.8881889763779528
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.7883184523809523,
+   "group": 0.8296130952380952
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.8456213222568363,
+   "group": 0.8227760470751125
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8846893633391036,
+   "group": 0.8881515676091556
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.9045406648146375,
+   "group": 0.9145990995306064
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.9283831282952548,
+   "group": 0.9544156414762741
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8866806802981082,
+   "group": 0.9114274794572903
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.8827664050074393,
+   "group": 0.8927710225232158
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.9182278481012658,
+   "group": 0.9092405063291139
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.8512469265893924,
+   "group": 0.8749560941341763
+  },
+  {
+   "setting": "india_state",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.8013802783951339,
+   "group": 0.8530822318399813
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.7785218253968254,
+   "group": 0.8436259920634921
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.8121322256836275,
+   "group": 0.8551401869158879
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8527601461819581,
+   "group": 0.9151759953837276
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.8484529169460676,
+   "group": 0.9130184883609541
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.8808216168717048,
+   "group": 0.9463971880492091
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8630804509841391,
+   "group": 0.9133384291993121
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.8360781899338156,
+   "group": 0.891334462059412
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.8733544303797468,
+   "group": 0.8996835443037975
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.8090972953986653,
+   "group": 0.870565507551809
+  },
+  {
+   "setting": "india_state",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.7984559597613756,
+   "group": 0.8589308691074979
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.7841021825396826,
+   "group": 0.8381696428571429
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.8201799930771894,
+   "group": 0.8547940463828314
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8616080015387575,
+   "group": 0.9073860357761108
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.8806399080371683,
+   "group": 0.9150301753041479
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.9068541300527241,
+   "group": 0.9477152899824253
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8725396522071469,
+   "group": 0.9097076246894706
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.8616284438971833,
+   "group": 0.8956441434508234
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.8979113924050633,
+   "group": 0.9031012658227848
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.8240252897787145,
+   "group": 0.8754829645240604
+  },
+  {
+   "setting": "india_state",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.7919054860217569,
+   "group": 0.8591648145981986
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.9009073543457498,
+   "group": 0.9077523081821076
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.896887159533074,
+   "group": 0.8951953984097445
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.897431550394168,
+   "group": 0.8887852843943376
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.890130197396052,
+   "group": 0.8978580428391432
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.9047179314976495,
+   "group": 0.8996809939556749
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.9000165398610651,
+   "group": 0.9024975190208402
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.8967586034497125,
+   "group": 0.8911757353553871
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.900519989770693,
+   "group": 0.8958315574119854
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.9047976011994003,
+   "group": 0.9087956021989005
+  },
+  {
+   "setting": "india_district",
+   "model": "ridge",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.8970419063270337,
+   "group": 0.9032046014790468
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.8996338745622413,
+   "group": 0.908468640560331
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.8966333953645745,
+   "group": 0.895279986465911
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8987030601000254,
+   "group": 0.9038738662371789
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.8895422091558168,
+   "group": 0.8986980260394792
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.904130288784419,
+   "group": 0.9019476158495635
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8881078398941449,
+   "group": 0.8967085676480318
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.891009082576452,
+   "group": 0.8945087909340889
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.9014576762424346,
+   "group": 0.8945528940414287
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.9047976011994003,
+   "group": 0.9085457271364318
+  },
+  {
+   "setting": "india_district",
+   "model": "rf",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.890797041906327,
+   "group": 0.9036154478225144
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold0",
+   "naive": 0.8989971346704871,
+   "group": 0.906717605858007
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold1",
+   "naive": 0.8946878700727458,
+   "group": 0.8960412789714093
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold2",
+   "naive": 0.8983639908451301,
+   "group": 0.8948037636687294
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold3",
+   "naive": 0.8869382612347753,
+   "group": 0.8954220915581689
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 0,
+   "split": "fold4",
+   "naive": 0.9071524513096038,
+   "group": 0.9017797179314977
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold0",
+   "naive": 0.8956334766787959,
+   "group": 0.8988587495865035
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold1",
+   "naive": 0.891925672860595,
+   "group": 0.891925672860595
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold2",
+   "naive": 0.8983036399283949,
+   "group": 0.8979626630295797
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold3",
+   "naive": 0.9013826420123272,
+   "group": 0.9090454772613693
+  },
+  {
+   "setting": "india_district",
+   "model": "gbm",
+   "seed": 1,
+   "split": "fold4",
+   "naive": 0.89531635168447,
+   "group": 0.904847986852917
+  }
+ ]
+}

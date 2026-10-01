@@ -1,0 +1,32 @@
+{
+ "fanout": {
+  "keys": 13130,
+  "frac_mult_equals_n_temp_rows": 1.0,
+  "frac_keys_with_temp_match": 1.0,
+  "corr_mult_ntemp": 1.0
+ },
+ "temp_source": {
+  "country_years": 28514,
+  "frac_with_multiple_rows": 0.280353510556218,
+  "median_within_cy_std": 2.1870549703635307,
+  "total_std": 7.592959612466919
+ },
+ "repeat": {
+  "keys_with_repeats": 3837,
+  "max_distinct_yield": 1,
+  "mean_distinct_temp_per_repeated_key": 4.3364607766484236
+ },
+ "rain_source": {
+  "countries": 192,
+  "frac_constant_over_years": 0.9791666666666666
+ },
+ "yield_match": {
+  "matched": 1.0,
+  "equal": 1.0
+ },
+ "pesticide_icc": {
+  "source_country_year": 0.9352872789829809,
+  "yield_df_rows": 0.7138628022753393,
+  "yield_df_unique_country_year": 0.7874990754769767
+ }
+}

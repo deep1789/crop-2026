@@ -1,0 +1,200 @@
+[
+ {
+  "rmse": 0.7082333996630694,
+  "mae": 0.5203827431077827,
+  "r2": 0.749501751177661,
+  "split": "to2015",
+  "seed": 0,
+  "model": "crop_mean",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.6774962123606184,
+  "mae": 0.4802373484154078,
+  "r2": 0.7707730744397554,
+  "split": "to2015",
+  "seed": 0,
+  "model": "ridge",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.6946189324812108,
+  "mae": 0.4736928448045572,
+  "r2": 0.7590399087835286,
+  "split": "to2015",
+  "seed": 0,
+  "model": "rf",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.6502058870183081,
+  "mae": 0.45658903259130995,
+  "r2": 0.7888681850253426,
+  "split": "to2015",
+  "seed": 0,
+  "model": "gbm",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.6693580611614481,
+  "mae": 0.47664430244400524,
+  "r2": 0.7762469919622468,
+  "split": "to2015",
+  "seed": 0,
+  "model": "gbm_tuned",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.584861322666589,
+  "mae": 0.4100339407143234,
+  "r2": 0.8291725371973427,
+  "split": "to2015",
+  "seed": 0,
+  "model": "gbm_id",
+  "n_test": 24756,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7307151962451071,
+  "mae": 0.5471479438532808,
+  "r2": 0.7210624202575509,
+  "split": "to2012",
+  "seed": 0,
+  "model": "crop_mean",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7030485797304885,
+  "mae": 0.5134741583957431,
+  "r2": 0.7417850278928101,
+  "split": "to2012",
+  "seed": 0,
+  "model": "ridge",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7849508514924364,
+  "mae": 0.5373270753915976,
+  "r2": 0.678118749596069,
+  "split": "to2012",
+  "seed": 0,
+  "model": "rf",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7135577828278931,
+  "mae": 0.5058675669179344,
+  "r2": 0.7340077122863351,
+  "split": "to2012",
+  "seed": 0,
+  "model": "gbm",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.703477317077353,
+  "mae": 0.5126175324326628,
+  "r2": 0.7414699994265583,
+  "split": "to2012",
+  "seed": 0,
+  "model": "gbm_tuned",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.635820455016037,
+  "mae": 0.4429741023346646,
+  "r2": 0.7888068922489366,
+  "split": "to2012",
+  "seed": 0,
+  "model": "gbm_id",
+  "n_test": 40682,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7669995025191494,
+  "mae": 0.5532340353338587,
+  "r2": 0.7198231341524077,
+  "split": "to2009",
+  "seed": 0,
+  "model": "crop_mean",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7503646314829402,
+  "mae": 0.5326876961370146,
+  "r2": 0.7318444320926976,
+  "split": "to2009",
+  "seed": 0,
+  "model": "ridge",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.778266458720761,
+  "mae": 0.5245015840475568,
+  "r2": 0.711531274311128,
+  "split": "to2009",
+  "seed": 0,
+  "model": "rf",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7168920472357355,
+  "mae": 0.5023351284196865,
+  "r2": 0.7552348212063796,
+  "split": "to2009",
+  "seed": 0,
+  "model": "gbm",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.7335096463825935,
+  "mae": 0.5202112002796495,
+  "r2": 0.7437559631622952,
+  "split": "to2009",
+  "seed": 0,
+  "model": "gbm_tuned",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ },
+ {
+  "rmse": 0.6469458314728797,
+  "mae": 0.4554241453495056,
+  "r2": 0.8006675769267693,
+  "split": "to2009",
+  "seed": 0,
+  "model": "gbm_id",
+  "n_test": 42186,
+  "proto": "forward",
+  "dataset": "india"
+ }
+]
