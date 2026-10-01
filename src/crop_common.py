@@ -100,7 +100,7 @@ def split_random(n, k=5, seed=0):
 def split_group(groups, k=5, seed=0):
     """Group-held-out K-fold: every group lands wholly in one test fold."""
     rng = np.random.RandomState(seed)
-    u = pd.unique(groups); rng.shuffle(u)
+    u = np.asarray(pd.unique(groups), dtype=object); rng.shuffle(u)
     fold = {g: i % k for i, g in enumerate(u)}
     f = np.array([fold[g] for g in groups])
     for i in range(k):

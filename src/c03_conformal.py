@@ -34,7 +34,7 @@ rows = []
 for seed in range(3):
     for lab, tr, te in split_group(G, 5, seed):
         rng = np.random.RandomState(seed)
-        trg = pd.unique(G[tr]); rng.shuffle(trg)
+        trg = np.asarray(pd.unique(G[tr]), dtype=object); rng.shuffle(trg)
         ncal = max(2, int(0.3 * len(trg))); calg = set(trg[:ncal]); fitg = trg[ncal:]
         is_cal = np.array([g in calg for g in G[tr]])
         fit_g_idx = tr[~is_cal]; cal_g_idx = tr[is_cal]            # group-aware split
