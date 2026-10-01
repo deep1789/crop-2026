@@ -1,4 +1,4 @@
-Table: Table 14. Effect of m labelled local rows per test group (nominal 90%; mean over seeds and folds).
+Table: Table 14. Effect of m labelled local rows per test group (nominal 90%; mean over seeds and folds). The m = 0 rows differ slightly from the group scheme of Table 7 because the runs use different random draws.
 
 | Dataset | m | Coverage | Width | RMSE after shift | Share of groups below 80% |
 |:---|---:|---:|---:|---:|---:|

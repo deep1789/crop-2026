@@ -1,4 +1,4 @@
-Table: Table 10. Group fingerprint strength and conformal coverage by model family (naive / group calibration, nominal 90%). Group-ID accuracy is the five-nearest-neighbour accuracy of identifying the group from the features, with the largest-group share in brackets. Feature ICC is the mean intraclass correlation of the continuous features (the Indian table has one, log area).
+Table: Table 10. Group fingerprint strength and conformal coverage by model family (naive / group calibration, nominal 90%). Group-ID accuracy is the five-nearest-neighbour accuracy of identifying the group from the features, with the largest-group share in brackets. Feature ICC is the mean intraclass correlation of the continuous features (the Indian table has one, log area). Values come from a separate two-seed run with the Indian data subsampled to 60,000 rows (651 districts present), so they differ slightly from Table 7.
 
 | Setting | Groups | Group-ID accuracy | Feature ICC | Ridge | GBM | Random forest |
 |:---|---:|:---|---:|:---|:---|:---|

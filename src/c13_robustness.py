@@ -35,7 +35,7 @@ for tag, clean in [("fao_clean", True), ("fao_raw", False)]:
                 wd.append(dict(auc_cv=float(roc_auc_score(yd, pcv)), ess_frac=float(wc.sum() ** 2 / (wc ** 2).sum() / len(wc)),
                                frac_clipped_hi=float((w > 20).mean()), frac_clipped_lo=float((w < 0.05).mean()), median_w=float(np.median(w))))
     r = pd.DataFrame(rows); out[tag] = {k: float(r[k].mean()) for k in ["naive", "group", "naive_width", "group_width"]}
-    if wd: out["wcp_diag"] = {k: float(np.mean([x[k] for x in wd])) for k in wd[0]}
+    # weight diagnostics superseded by c13b_wcp_diag.py (shuffled cross-fitting); the unshuffled variant here was an artefact
     print(tag, out[tag], flush=True)
 print("wcp diag", out.get("wcp_diag"))
 

@@ -1,4 +1,4 @@
-Table: Table 15. Place lookups and fingerprint-free features on the FAO file (distinct records). Upper block: RMSE of log-yield (R² in brackets) by protocol. Lower block: conformal coverage on unseen countries at nominal 90% with each feature set (gradient boosting).
+Table: Table 15. Place lookups and fingerprint-free features on the FAO file (distinct records). Upper block: RMSE of log-yield (R² in brackets) by protocol. Lower block: conformal coverage on unseen countries at nominal 90% with each feature set (gradient boosting; a separate three-seed run, so naive coverage with full features is 0.602 against 0.598 in Table 7).
 
 | Model | Random | Forward in time | Country held out |
 |:---|:---|:---|:---|
