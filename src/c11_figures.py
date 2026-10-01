@@ -83,12 +83,12 @@ for i, (met, key, yl) in enumerate([("p10_group_cov", "p10_group_cov", "10th-per
     ax[i].set_xticks(range(3)); ax[i].set_xticklabels(["FAO\ncountries", "India\nstates", "India\ndistricts"]); ax[i].set_ylabel(yl); ax[i].grid(axis="x", visible=False); tag(ax[i], "abc"[i])
 ax[0].set_ylim(0.2, 0.9); h, l_ = ax[0].get_legend_handles_labels(); fig.legend(h, l_, loc="lower center", ncol=6, fontsize=7.5, bbox_to_anchor=(0.5, -0.04)); fig.tight_layout(rect=(0, 0.06, 1, 1)); save(fig, "fig05_methods.png")
 
-# ---- Fig 6: applicability
-fig, ax = plt.subplots(1, 3, figsize=(7.4, 2.5))
+# ---- Fig 6: applicability (group-level means over seeds and folds; cluster-bootstrap correlation)
+RB = R("c13_robustness.json"); fig, ax = plt.subplots(1, 3, figsize=(7.4, 2.5))
 for a, k, nm in zip(ax, keys, ["FAO countries", "India states", "India districts"]):
-    g = pd.DataFrame(R(f"c08_diag_{k}.json")); a.scatter(g.sigma, g.mae, s=5, color=C["blue"], alpha=.35, linewidths=0)
+    g = pd.DataFrame(R(f"c08_diag_{k}.json")).groupby("group")[["sigma", "mae"]].mean(); a.scatter(g.sigma, g.mae, s=7, color=C["blue"], alpha=.45, linewidths=0)
     a.set_xlabel("predicted residual scale σ(x)"); a.set_ylabel("group mean absolute error")
-    sp = S["applicability_spearman"][f"{k}|sigma"]; a.set_title(f"{nm}: Spearman {sp[0]:.2f}", fontsize=8.5, loc="left")
+    sp = RB["applicability_cluster"][f"{k}|sigma"]; a.set_title(f"{nm}: Spearman {sp[0]:.2f}", fontsize=8.5, loc="left")
 fig.tight_layout(); [tag(a, "abc"[i]) for i, a in enumerate(ax)]; save(fig, "fig06_applicability.png")
 
 # ---- Fig 7: local calibration
@@ -99,3 +99,21 @@ for ds, c, l in [("fao_clean", C["orange"], "FAO countries"), ("india", C["aqua"
     ax[1].plot(ms, [lc[f"{ds}|{m}"]["rmse_after_shift"][0] for m in ms], "o-", color=c, lw=1.4, ms=4, label=l)
 ax[0].set_ylabel("mean 90% interval width"); ax[1].set_ylabel("RMSE after local shift"); [a.set_xlabel("labelled local rows m") for a in ax]; ax[0].legend(fontsize=7); tag(ax[0], "a"); tag(ax[1], "b")
 fig.tight_layout(); save(fig, "fig07_local.png")
+
+# ---- Fig 8: fingerprint-free features
+FF = R("c14_fingerprint_free.json"); P = FF["point_ci"]
+fig, ax = plt.subplots(1, 2, figsize=(7.4, 2.8), gridspec_kw={"width_ratios": [1.7, 1]})
+mods = [("crop_mean", "crop mean", MUT), ("country_crop_mean", "country–crop mean", C["yellow"]), ("gbm_full", "GBM, full features", C["blue"]), ("gbm_anomaly", "GBM, anomaly features", C["aqua"]), ("cc_mean_plus_gbm_anomaly", "country–crop mean + GBM on anomalies", C["violet"])]
+protos = [("random", "random"), ("forward", "forward in time"), ("group", "country held out")]; w = 0.15
+for j, (m, l, c) in enumerate(mods):
+    x = np.arange(3) + (j - 2) * w; v = [P[f"{p}|{m}"]["r2"] for p, _ in protos]
+    ax[0].bar(x, [t[0] for t in v], w * 0.88, color=c, label=l, yerr=[[t[0] - t[1] for t in v], [t[2] - t[0] for t in v]], error_kw=dict(lw=0.6, capsize=1, ecolor=INK))
+ax[0].set_xticks(range(3)); ax[0].set_xticklabels([l for _, l in protos]); ax[0].set_ylabel("R² (95% CI)"); ax[0].set_ylim(0, 1.0); ax[0].grid(axis="x", visible=False); tag(ax[0], "a")
+CI = FF["coverage_ci"]; xs = np.arange(2)
+for j, (k, l, c) in enumerate([("naive", "naive calibration", C["orange"]), ("group", "group calibration", C["blue"])]):
+    v = [CI[f"{fs}|{k}"] for fs in ["full", "anomaly"]]
+    ax[1].bar(xs + (j - 0.5) * 0.34, [t[0] for t in v], 0.32, color=c, label=l, yerr=[[t[0] - t[1] for t in v], [t[2] - t[0] for t in v]], error_kw=dict(lw=0.6, capsize=1.5, ecolor=INK))
+ax[1].axhline(0.9, color=MUT, lw=0.7, ls=":"); ax[1].set_xticks(xs); ax[1].set_xticklabels(["full\nfeatures", "anomaly\nfeatures"]); ax[1].set_ylim(0.4, 1.0); ax[1].set_ylabel("coverage on unseen countries"); ax[1].grid(axis="x", visible=False)
+ax[1].legend(fontsize=6.8, loc="upper center", bbox_to_anchor=(0.5, 1.22), ncol=2, columnspacing=0.8, handlelength=1.0); tag(ax[1], "b")
+h, l_ = ax[0].get_legend_handles_labels(); fig.legend(h, l_, loc="lower center", ncol=3, fontsize=6.8, bbox_to_anchor=(0.36, -0.02))
+fig.tight_layout(rect=(0, 0.16, 1, 1)); save(fig, "fig08_fingerprint_free.png")

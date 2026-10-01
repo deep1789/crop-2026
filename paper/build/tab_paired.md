@@ -1,4 +1,4 @@
-Table: Table 10. Paired difference between scaled and plain group calibration at nominal 90% (scaled minus group; mean over seeds and folds with 95% bootstrap interval).
+Table: Table 12. Paired difference between scaled and plain group calibration at nominal 90% (scaled minus group; mean over seeds and folds with 95% bootstrap interval).
 
 | Setting | Share below | p10 group coverage | Width |
 |:---|---:|---:|---:|

@@ -34,4 +34,9 @@ REFS = {
 "shrout1979": "P.E. Shrout, J.L. Fleiss, Intraclass correlations: uses in assessing rater reliability, Psychological Bulletin 86 (2) (1979) 420–428. doi:10.1037/0033-2909.86.2.420.",
 "pedregosa2011": "F. Pedregosa, G. Varoquaux, et al., Scikit-learn: machine learning in Python, Journal of Machine Learning Research 12 (2011) 2825–2830.",
 "paper1": "[Authors to be added], Group leakage in tabular regression benchmarks: theory, measurement and remedies, companion manuscript (2026), https://github.com/deep1789/Energy-efficient.",
+"jiang2024": "H. Jiang, Y. Xie, Spatial conformal inference through localized quantile regression, arXiv:2412.01098 (2024).",
+"lou2025": "X. Lou, P. Luo, L. Meng, GeoConformal prediction: a model-agnostic framework for measuring the uncertainty of spatial prediction, Annals of the American Association of Geographers 115 (8) (2025) 1971–1998. doi:10.1080/24694452.2025.2516091.",
+"bhattacharyya2026": "A. Bhattacharyya, R.F. Barber, Group-weighted conformal prediction, Electronic Journal of Statistics 20 (1) (2026). doi:10.1214/26-EJS2506.",
+"pnastra": "pnastra, crop-yield-forecast, GitHub repository, https://github.com/pnastra/crop-yield-forecast (accessed 2026).",
+"sivarjun": "sivarjun21, crop-yield-prediction, GitHub repository, https://github.com/sivarjun21/crop-yield-prediction (accessed 2026).",
 }

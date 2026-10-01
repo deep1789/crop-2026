@@ -1,4 +1,4 @@
-Table: Table 13. Simulation check of the coverage relation (nominal 90%; mean over 20 replicates). τ is the SD of group effects relative to unit noise; n is the number of rows per group; ρ is the measured ratio of test to calibration residual scale under naive calibration.
+Table: Table 9. Simulation check of the coverage relation (nominal 90%; mean over 20 replicates). τ is the SD of group effects relative to unit noise; n is the number of rows per group; ρ is the measured ratio of test to calibration residual scale under naive calibration.
 
 | τ | n | ρ (naive) | Naive coverage | Eq. (5) | Group coverage |
 |---:|---:|---:|---:|---:|---:|

@@ -25,6 +25,14 @@ We report empirical coverage, mean interval width (in log-yield units, twice the
 
 To test how much labelled data from the target group help, we give the model $m\in\{0,1,3,5,10,20\}$ labelled rows from each test group, shift the group's predictions by a shrunk mean residual, $\frac{m}{m+3}\times$ (mean residual of the $m$ rows), and score the remaining rows. Calibration groups are treated identically (the same $m$ rows used for the shift, the rest for scores), so the procedure is exchangeable at the group level.
 
+## Robustness analyses
+
+Weighted conformal prediction is diagnosed by training a domain classifier (gradient boosting, cross-fitted with shuffled three-fold validation) to separate calibration rows from test rows, for the naive calibration rows and for the calibration groups, and reporting its AUC, the effective sample size of the weights, the share of weights below the lower clipping bound and the coverage with and without weights. The naive-versus-group comparison is repeated on the 28,242 raw FAO rows. For the applicability scores, each group's score and error are averaged over seeds and folds and the correlation is bootstrapped over groups (1,000 resamples).
+
+## Place lookups and fingerprint-free features
+
+A **country–crop lookup** predicts the mean log-yield of the country and crop in the training rows (the crop mean when the country-crop is unseen, as in group hold-out). **Anomaly features** remove the country level: temperature minus the country's mean temperature, log(1 + pesticides) minus its country mean, together with crop and year; rainfall is dropped because it is constant within a country. Country means are computed from the features of the country's own records, which uses no labels and is available whenever a feature history exists for the country. We compare ridge regression and gradient boosting on the full and anomaly feature sets, a combination of the lookup with a gradient boosting model on the lookup's residuals, and naive and group conformal coverage and group-ID accuracy with each feature set, using the protocols above with three seeds.
+
 ## Fingerprint strength and simulation
 
 We measure a group fingerprint two ways: the accuracy of a five-nearest-neighbour classifier that predicts the group from standardised features on random 30% held-out rows (against the share of the largest group as chance), and the mean intraclass correlation of the continuous features by group. We compare ridge regression, random forest and gradient boosting under naive and group calibration on every setting. A simulation checks Eq. (5): groups have effects $u_g\sim N(0,\tau^2)$ with $\tau\in\{0,0.25,0.5,1,1.5,2,3\}$, noise of unit variance, 60 groups and 10 or 50 rows per group, 20 replicates each, with a learner that memorises seen-group means.
